@@ -47,6 +47,7 @@ $$
 > $$
 > Se stai risolvendo un **problema di minimizzazione**, la dual ammissibilità richiede $\\bar c_j \\ge 0$ per tutti i non base ⇒ **SÌ**, è dualmente ammissibile (e questo non dipende da $\\delta$).
 > Se invece fosse stato un **problema di massimizzazione**, tipicamente serve $\\bar c_j \\le 0$ ⇒ qui **NO** (perché $5,5>0$).
+>
 > 2.❌ Il tableau è associato alla soluzione primale ottima?
 > Per essere “primale ottima”  servono **ammissibilità primale** + **costi ridotti col segno giusto**(ok, 0,5,5 ≥ 0). Per la **fattibilità** primale i termini noti devono essere positivi ma non possiamo perche' non sappiamo se il $\\delta$ sia positiva o negativa.
 >
@@ -83,7 +84,7 @@ $$
 >
 > Per un **problema di minimo**, una variabile non basica con **costo ridotto negativo** è una candidata entrante perché può **ridurre** il valore dell’obiettivo. Tra le non basiche $(x_2,x_3,x_5)$, l’unica con valore negativo in riga 0 è $x_5$ (coefficiente $-5$), quindi scegliamo $x_5$ come **variabile entrante**.
 >
-> Ora osserviamo la colonna di $x_5$ nelle righe dei vincoli: i coefficienti sono $-5$ e $-2$, quindi sono **tutti $\\le 0$**. Questo implica che, aumentando $x_5$, i valori delle variabili basiche **non diminuiscono** (anzi aumentano), quindi la fattibilità primale **non viene mai violata**. Di conseguenza **non esiste una variabile uscente** (il ratio test non si può applicare).
+> Ora osserviamo la colonna di $x_5$ nelle righe dei vincoli: i coefficienti sono $-5$ e $-2$, quindi sono **tutti** $\\le 0$. Questo implica che, aumentando $x_5$, i valori delle variabili basiche **non diminuiscono** (anzi aumentano), quindi la fattibilità primale **non viene mai violata**. Di conseguenza **non esiste una variabile uscente** (il ratio test non si può applicare).
 >
 > Quindi possiamo aumentare $x_5$ arbitrariamente e l’obiettivo continua a diminuire senza limite: il problema è **illimitato inferiormente**.
 >

@@ -47,6 +47,24 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     output: 'html' // Forces HTML output to avoid MathML duplication issues
   };
 
+  // Custom components for Markdown to ensure numbering and tables look good
+  const markdownComponents = {
+    // Force ordered lists to show numbers (decimal)
+    ol: ({node, ...props}: any) => (
+      <ol className="list-decimal list-outside ml-5 space-y-2 marker:font-bold marker:text-slate-600 dark:marker:text-slate-400" {...props} />
+    ),
+    // Add spacing to list items
+    li: ({node, ...props}: any) => (
+      <li className="pl-2" {...props} />
+    ),
+    // Handle tables with overflow wrapper
+    table: ({node, ...props}: any) => (
+      <div className="overflow-x-auto my-6 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm">
+        <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700" {...props} />
+      </div>
+    )
+  };
+
   return (
     <article 
       id={question.slug} 
@@ -54,8 +72,8 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     >
       {/* Header */}
       <header className="px-6 py-5 border-b border-slate-100 dark:border-slate-700/50 flex gap-4 items-start bg-slate-50/50 dark:bg-slate-800/50">
-        <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-accent/10 text-accent dark:text-accent-light font-mono text-sm font-bold mt-0.5">
-          {question.number}
+        <span className="flex-shrink-0 flex items-center justify-center px-3 py-1.5 rounded-lg bg-accent/10 text-accent dark:text-accent-light font-mono text-sm font-bold mt-0.5 whitespace-nowrap">
+          Domanda {question.number}
         </span>
         
         <div className="flex-1">
@@ -90,14 +108,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
         <ReactMarkdown 
           remarkPlugins={[remarkMath, remarkGfm]} 
           rehypePlugins={[[rehypeKatex, katexOptions]]}
-          components={{
-            // Tables are handled by remark-gfm, but we ensure wrapper for overflow
-            table: ({node, ...props}) => (
-              <div className="overflow-x-auto my-6 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm">
-                <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700" {...props} />
-              </div>
-            )
-          }}
+          components={markdownComponents}
         >
           {question.rawQuestion}
         </ReactMarkdown>
@@ -138,7 +149,8 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                     remarkPlugins={[remarkMath, remarkGfm]} 
                     rehypePlugins={[[rehypeKatex, katexOptions]]}
                     components={{
-                      table: ({node, ...props}) => (
+                        ...markdownComponents,
+                        table: ({node, ...props}: any) => (
                         <div className="overflow-x-auto my-4 border border-slate-300 dark:border-slate-600 rounded">
                           <table className="min-w-full divide-y divide-slate-300 dark:divide-slate-600" {...props} />
                         </div>
