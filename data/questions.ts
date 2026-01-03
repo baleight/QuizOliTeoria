@@ -134,7 +134,7 @@ $$
 >
 > 8.✅. La base del tableau è $\\{x_1,x_4\\}$. Per ottenere $\\{x_1,x_2\\}$ si moltiplica per $-1$ la seconda riga, così la colonna di $x_2$ diventa unitaria. Nel caso di **minimizzazione** la **dual ammissibilità** vale se $\\bar c_j \\ge 0 \\ \\ \\forall j,$  e dipende **solo** dai **costi ridotti** (riga 0: $(0,0,0,0,5)$), **non** dai termini noti (RHS).
 
-#### Considera i due problemi,  $P: \\min \\{\\, c^T x : A x = b,\\, x \\ge 0 \\,\\}$ e $D: \\max \\{\\, u^T b : u^T A \\le c^T \\,\\}$ allora:
+#### Considera i due problemi,  $P: \\min \\{\\, c^T x : A x = b,\\, x \\ge 0 \\,\\}$ e $D: \\max \\{\\, u^T b : u^T A \\le c^T \\,\\}$ (dove $u$ è libera in segno, perché nel primale c’è un vincolo di uguaglianza). allora:
 
 1. una soluzione ammissibile di $P$ fornisce un limite inferiore per il valore ottimale di $D$;  
 
