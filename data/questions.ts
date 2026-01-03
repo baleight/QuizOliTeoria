@@ -66,7 +66,6 @@ $$
 > il tableau è associato alla soluzione primale ottima? Si perché la base $x_2$ e $x_4$ è ammissibile e i costi ridotti sono tutti non negativi.
 >
 > 4.✅Es:
->
 > $$
 > \\begin{array}{|c|ccccc|}
 > \\hline
@@ -117,8 +116,7 @@ $$
 > Esiste ed è primale una soluzione di base ammissibile $x*= {2,0,0,5,0}$, l’insieme fattibile non è vuoto, cioè significa che esiste **almeno un punto**, una soluzione che soddisfa **tutti i vincoli del problema**.
 >
 > Esempio per 7 e 8:
-> $$
-> \\begin{array}{|c|ccccc|}
+> $$\\begin{array}{|c|ccccc|}
 > \\hline
 > x_1 & x_2 & x_3 & x_4 & x_5 \\\\
 > \\hline
@@ -126,8 +124,7 @@ $$
 > 1 & 0 & 2 & 0 & \\gamma & 2 \\\\
 > 0 & 1 & -4 & -1 & 2 & -\\delta \\\\
 > \\hline
-> \\end{array}
-> $$
+> \\end{array}$$
 > 7.✅ Per un problema di minimizzazione se una soluzione di base è **primale ammissibile** e **tutti i costi ridotti delle variabili non basiche sono non negativi**, allora la soluzione è **ottima**.
 > 8.✅. La base del tableau è $\\{x_1,x_4\\}$. Per ottenere $\\{x_1,x_2\\}$ si moltiplica per $-1$ la seconda riga, così la colonna di $x_2$ diventa unitaria. Nel caso di **minimizzazione** la **dual ammissibilità** vale se $\\bar c_j \\ge 0 \\ \\ \\forall j,$  e dipende **solo** dai **costi ridotti** (riga 0: $(0,0,0,0,5)$), **non** dai termini noti (RHS).
 ---
