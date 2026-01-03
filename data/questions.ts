@@ -176,24 +176,42 @@ $$
 
 8. vi sono variabili nulle nella soluzione;
 
-> Risposte:
->
-> Una delle var in base = 0
->
-> 1. ❌. Il numero di variabili è generalmente maggiore del numero di vincoli, ma ciò non definisce la degenerazione.
->
-> 2. ❌. In una soluzione di base degenere, il numero di variabili di base che sono zero è superiore al numero di vincoli.
->
-> 3. ✅
->
-> 4. ❌
->
-> 5. ❌. La degenerazione implica che il numero di variabili di base a zero sia superiore al numero di vincoli, ma non è definita così.
->
-> 6. ✅
->
-> 7. ❌. Una matrice di base deve essere quadrata e invertibile.
 
+> Risposte:
+> ### Definizione corretta di degenerazione (BFS,Basic Feasible Solution)
+>
+> In un problema di **Programmazione Lineare** (LP/PLC), una **soluzione di base** è **degenere** quando **almeno una variabile di base vale 0**
+> (equivalentemente: il numero di variabili di base **strettamente positive** è **< m**, dove *m* è il numero di vincoli / righe della matrice dei vincoli).
+>
+> Quindi: *“ci sono variabili nulle nella soluzione”* **non è sufficiente** in generale, perché in una BFS ci saranno sempre molte variabili **non di base** poste a 0. La degenerazione riguarda **le variabili di base**.
+>
+> Esempio di tableu degenere:
+>
+> $\begin{array}{|c|ccccc|}
+> \hline
+> x_1 & x_2 & x_3 & x_4 & x_5 \\
+> \hline
+> 0 & 0 & 0 & 5 & 3 & -3 \\
+> 1 & 0 & 2 & 0 & 6 & 2 \\
+> 0 & 1 & 4 & 1 & -2 & 0 \\
+> \hline
+> \end{array}$
+>
+> Quindi la soluzione fattibile di base(BFS)  associata è $x^*=(2,0,0,0,0)$ con $x_3=x_4=x_5=0$ non basiche.
+>
+> La soluzione è **degenere** perché **una variabile di base è nulla**: $x_2$ è in base e vale (0). Valutazione delle risposte:
+>
+> ✅ Corrette:
+> - **8.** “vi sono variabili nulle nella soluzione” → corretta **solo se intesa come: variabili di base nulle** Attenti, da chiedere al prof.
+> - **3.** "n variabili di base ≠0 < n vincoli” → è proprio l’equivalente della degenerazione.
+> - **6.** è la stessa idea della 3, solo riscritta.
+>
+> ❌ Errate / non definitorie:
+> - **1.** irrilevante per degenerazione.
+> - **2.** troppo forte: “n basiche a zero = n vincoli” significherebbe tutte le basiche zero (caso particolare, non definizione).
+> - **4.** descrive il caso **non degenere** (basiche non nulle = m).
+> - **5.** non è collegata alla definizione (mix n−m).
+> - **7.** una base deve essere invertibile per definizione di base (non caratterizza degenerazione).
 ---
 
 #### Dato un problema di Programmazione Lineare Intera (PLI), in minimizzazione, sia ( $z^*$ ) il valore ottimale del rilassamento continuo (LP-relax).
