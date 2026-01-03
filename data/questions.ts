@@ -187,7 +187,7 @@ $$
 >
 > Esempio di tableu degenere:
 >
-> $\begin{array}{|c|ccccc|}
+> $$\begin{array}{|c|ccccc|}
 > \hline
 > x_1 & x_2 & x_3 & x_4 & x_5 \\
 > \hline
@@ -195,7 +195,7 @@ $$
 > 1 & 0 & 2 & 0 & 6 & 2 \\
 > 0 & 1 & 4 & 1 & -2 & 0 \\
 > \hline
-> \end{array}$
+> \end{array}$$
 >
 > Quindi la soluzione fattibile di base(BFS)  associata è $x^*=(2,0,0,0,0)$ con $x_3=x_4=x_5=0$ non basiche.
 >
