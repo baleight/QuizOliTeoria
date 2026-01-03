@@ -145,18 +145,36 @@ $$
 4. una coppia di soluzioni $x$ e $u$ tale che $(u^TA - c^T)x = 0$ sono ottimali se $x \\geq 0$;  
 
 5. una coppia di soluzioni $x$ e $u$ sono ottimali se $x \\geq 0$ e $u \\geq 0$.
-
 > Risposta:
 >
-> 1. ❌. Per debole dualità ($c^\\top x \\ge b^\\top u$): ($c^\\top x$) è un upper bound di $ D^* $), non un lower bound.
+> 1. ❌. Per debole dualità ($c^\top x \ge b^\top u$): ($c^\top x$) è un upper bound di $ D^* $), non un lower bound.
+> 2. ✅. Sempre da debole dualità: ($b^\top u \le c^\top x$) per ogni (x) ammissibile ⇒ ($b^\top u \le$ $P^*$) ⇒ lower bound per $P^*$
+> 3. ❌ La condizione $c^\top - c_B^\top B^{-1}A \ge 0$
+>    controlla **solo il duale** e non dice nulla su (x). Essa indica semplicemente che i “prezzi” (u) sono **ammissibili per il problema duale**, perché i **costi ridotti sono non negativi** rispetto a una base (B) (dual-ammissibilità). Tuttavia, **non verifica se le quantità (x) sono fattibili**, cioè se (x) rispetta i vincoli del primale; in particolare, non controlla la **complementarità (slackness)**. Per trasformarla in un’affermazione vera: una coppia ((x,u)) è ottimale se (equivalentemente) vale la **complementarità** $
+>    (c^\top - u^\top A)x = 0,$ oppure se la condizione $c^\top - c_B^\top B^{-1}A \ge 0$
+>    vale **insieme** a $x_B = B^{-1}b \ge 0,\qquad x_N = 0, $cioè se (x) è la **soluzione di base associata alla base (B)** ed è primale ammissibile.
+> 4. ❌La condizione $(u^\top A - c^\top)x = 0 $dice solo che **ogni variabile positiva ha costo ridotto nullo** (condizione di **complementarità**), ma **non garantisce** che: (x) soddisfi $Ax = b$; , (u) rispetti $u^\top A \le c^\top$. Per rendere l’affermazione vera, bisogna dire che una coppia ((x,u)) è **ottimale** se: $Ax=b,\quad x\ge 0,\quad u^\top A\le c^\top,\quad (c^\top-u^\top A)x=0. $(Cioè: **ammissibilità primale + ammissibilità duale + complementarità**.
+> 5. ❌ La sola non negatività di (x) e (u) **non implica l’ottimalità**; inoltre (u) **può anche non essere positivo**, poiché nel duale è libero in segno.Per verificare l’ottimalità è necessario controllare: 1. i **vincoli del primale**; 2. i **vincoli del duale**; 3. la **complementarità** tra (x) e (u).
 >
-> 2. ✅. Sempre da debole dualità: ($b^\\top u \\le c^\\top x$) per ogni (x) ammissibile ⇒ ($b^\\top u \\le$ $P^*$) ⇒ lower bound per $P^*$
+> 🔑 Riassumendo – Regola d’oro
 >
-> 3. ❌. La condizione ($c^\\top - c_B^\\top B^{-1}A \\ge 0$) certifica l’ottimalità solo se ($u = c_B^\\top B^{-1}$) (e vale la slackness). Così com’è, non lega ($ u $) alla base né impone la slackness.
+> Una coppia ((x,u)) è **ottimale** se e solo se:
 >
-> 4. ❌. L’uguaglianza scalare ($(u^\\top A - c^\\top)x=0$) può annullarsi per compensazioni; servono anche ($Ax=b$), ($u^\\top A \\le c^\\top) e ((c-A^\\top u)\\circ x=0$
+> 1. (x) è ammissibile
 >
-> 5. ❌. La sola non negatività di ($ x $) e (u) non implica ottimalità; occorrono ammissibilità (primale e duale) e slackness complementare.
+> - rispetta i vincoli (Ax=b);
+> - è non negativo.
+>
+> 2. (u) è ammissibile
+>
+> - non viola i vincoli duali (u^\top A \le c^\top).
+>
+> 3. Sono coerenti tra loro
+>
+> - nessuna variabile positiva “spreca valore”
+>   (condizione di **complementarità**).
+>
+> 👉 **Servono tutte e tre insieme**, mai una sola.
 
 ---
 
