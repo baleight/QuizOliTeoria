@@ -19,7 +19,6 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   collapseSignal 
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showToast, setShowToast] = useState(false);
 
   // Handle global signals
   useEffect(() => {
@@ -33,13 +32,6 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   useEffect(() => {
     if (collapseSignal > 0) setIsOpen(false);
   }, [collapseSignal]);
-
-  const handleCopyLink = () => {
-    const url = `${window.location.origin}${window.location.pathname}#${question.slug}`;
-    navigator.clipboard.writeText(url);
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 2000);
-  };
 
   const katexOptions = {
     strict: false,
@@ -88,19 +80,6 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
              </ReactMarkdown>
           </h3>
         </div>
-
-        <button 
-          onClick={handleCopyLink}
-          className="flex-shrink-0 p-2 text-slate-400 hover:text-accent hover:bg-accent/10 rounded-full transition-colors relative"
-          title="Copia link diretto"
-        >
-          🔗
-          {showToast && (
-            <span className="absolute -top-8 -right-2 bg-slate-800 text-white text-xs py-1 px-2 rounded shadow-lg whitespace-nowrap animate-fade-in-up">
-              Link copiato!
-            </span>
-          )}
-        </button>
       </header>
       
       {/* Question Content */}

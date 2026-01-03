@@ -66,6 +66,7 @@ $$
 > il tableau è associato alla soluzione primale ottima? Si perché la base $x_2$ e $x_4$ è ammissibile e i costi ridotti sono tutti non negativi.
 >
 > 4.✅Es:
+>
 > $$
 > \\begin{array}{|c|ccccc|}
 > \\hline
@@ -88,6 +89,7 @@ $$
 > Quindi possiamo aumentare $x_5$ arbitrariamente e l’obiettivo continua a diminuire senza limite: il problema è **illimitato inferiormente**.
 >
 > 5.❌Es:
+>
 > $$
 > \\begin{array}{|c|ccccc|}
 > \\hline
@@ -100,7 +102,7 @@ $$
 > \\end{array}
 > $$
 > I termini noti sono positivi, quindi il primale è ammissibile.
->
+
 > 6.✅
 > $$
 > \\begin{array}{|c|ccccc|}
@@ -116,7 +118,9 @@ $$
 > Esiste ed è primale una soluzione di base ammissibile $x*= {2,0,0,5,0}$, l’insieme fattibile non è vuoto, cioè significa che esiste **almeno un punto**, una soluzione che soddisfa **tutti i vincoli del problema**.
 >
 > Esempio per 7 e 8:
-> $$\\begin{array}{|c|ccccc|}
+>
+> $$
+> \\begin{array}{|c|ccccc|}
 > \\hline
 > x_1 & x_2 & x_3 & x_4 & x_5 \\\\
 > \\hline
@@ -124,11 +128,13 @@ $$
 > 1 & 0 & 2 & 0 & \\gamma & 2 \\\\
 > 0 & 1 & -4 & -1 & 2 & -\\delta \\\\
 > \\hline
-> \\end{array}$$
+> \\end{array}
+> $$
 > 7.✅ Per un problema di minimizzazione se una soluzione di base è **primale ammissibile** e **tutti i costi ridotti delle variabili non basiche sono non negativi**, allora la soluzione è **ottima**.
+>
 > 8.✅. La base del tableau è $\\{x_1,x_4\\}$. Per ottenere $\\{x_1,x_2\\}$ si moltiplica per $-1$ la seconda riga, così la colonna di $x_2$ diventa unitaria. Nel caso di **minimizzazione** la **dual ammissibilità** vale se $\\bar c_j \\ge 0 \\ \\ \\forall j,$  e dipende **solo** dai **costi ridotti** (riga 0: $(0,0,0,0,5)$), **non** dai termini noti (RHS).
----
-#### Considera i due problemi,  $P: \\min \\{\\, c^T x : A x = b,\\, x \\ge 0 \\,\\}$ e $D: \\max \\{\\, u^T b : u^T A \\le c^T \\,\\}$ (dove $u$ è libera in segno, perché nel primale c’è un vincolo di uguaglianza). allora:
+
+#### Considera i due problemi,  $P: \\min \\{\\, c^T x : A x = b,\\, x \\ge 0 \\,\\}$ e $D: \\max \\{\\, u^T b : u^T A \\le c^T \\,\\}$ allora:
 
 1. una soluzione ammissibile di $P$ fornisce un limite inferiore per il valore ottimale di $D$;  
 
@@ -139,36 +145,19 @@ $$
 4. una coppia di soluzioni $x$ e $u$ tale che $(u^TA - c^T)x = 0$ sono ottimali se $x \\geq 0$;  
 
 5. una coppia di soluzioni $x$ e $u$ sono ottimali se $x \\geq 0$ e $u \\geq 0$.
+
 > Risposte:
-> 1. ❌. Per debole dualità ($c^\top x \ge b^\top u$): ($c^\top x$) è un upper bound di $ D^* $), non un lower bound.
-> 2. ✅. Sempre da debole dualità: ($b^\top u \le c^\top x$) per ogni (x) ammissibile ⇒ ($b^\top u \le$ $P^*$) ⇒ lower bound per $P^*$
-> 3. ❌ La condizione $c^\top - c_B^\top B^{-1}A \ge 0$
+> 1. ❌. Per debole dualità ($c^\\top x \\ge b^\\top u$): ($c^\\top x$) è un upper bound di $ D^* $), non un lower bound.
+> 2. ✅. Sempre da debole dualità: ($b^\\top u \\le c^\\top x$) per ogni (x) ammissibile ⇒ ($b^\\top u \\le$ $P^*$) ⇒ lower bound per $P^*$
+> 3. ❌ La condizione $c^\\top - c_B^\\top B^{-1}A \\ge 0$
 >    controlla **solo il duale** e non dice nulla su (x). Essa indica semplicemente che i “prezzi” (u) sono **ammissibili per il problema duale**, perché i **costi ridotti sono non negativi** rispetto a una base (B) (dual-ammissibilità). Tuttavia, **non verifica se le quantità (x) sono fattibili**, cioè se (x) rispetta i vincoli del primale; in particolare, non controlla la **complementarità (slackness)**. Per trasformarla in un’affermazione vera: una coppia ((x,u)) è ottimale se (equivalentemente) vale la **complementarità** $
->    (c^\top - u^\top A)x = 0,$ oppure se la condizione $c^\top - c_B^\top B^{-1}A \ge 0$
->    vale **insieme** a $x_B = B^{-1}b \ge 0,\qquad x_N = 0, $cioè se (x) è la **soluzione di base associata alla base (B)** ed è primale ammissibile.
-> 4. ❌La condizione $(u^\top A - c^\top)x = 0 $dice solo che **ogni variabile positiva ha costo ridotto nullo** (condizione di **complementarità**), ma **non garantisce** che: (x) soddisfi $Ax = b$; , (u) rispetti $u^\top A \le c^\top$. Per rendere l’affermazione vera, bisogna dire che una coppia ((x,u)) è **ottimale** se: $Ax=b,\quad x\ge 0,\quad u^\top A\le c^\top,\quad (c^\top-u^\top A)x=0. $(Cioè: **ammissibilità primale + ammissibilità duale + complementarità**.
+>    (c^\\top - u^\\top A)x = 0,$ oppure se la condizione $c^\\top - c_B^\\top B^{-1}A \\ge 0$
+>    vale **insieme** a $x_B = B^{-1}b \\ge 0,\\qquad x_N = 0, $cioè se (x) è la **soluzione di base associata alla base (B)** ed è primale ammissibile.
+> 4. ❌La condizione $(u^\\top A - c^\\top)x = 0 $dice solo che **ogni variabile positiva ha costo ridotto nullo** (condizione di **complementarità**), ma **non garantisce** che: (x) soddisfi $Ax = b$; , (u) rispetti $u^\\top A \\le c^\\top$. Per rendere l’affermazione vera, bisogna dire che una coppia ((x,u)) è **ottimale** se: $Ax=b,\\quad x\\ge 0,\\quad u^\\top A\\le c^\\top,\\quad (c^\\top-u^\\top A)x=0. $(Cioè: **ammissibilità primale + ammissibilità duale + complementarità**.
 > 5. ❌ La sola non negatività di (x) e (u) **non implica l’ottimalità**; inoltre (u) **può anche non essere positivo**, poiché nel duale è libero in segno.Per verificare l’ottimalità è necessario controllare: 1. i **vincoli del primale**; 2. i **vincoli del duale**; 3. la **complementarità** tra (x) e (u).
->
-> 🔑 Riassumendo – Regola d’oro
->
-> Una coppia ((x,u)) è **ottimale** se e solo se:
->
-> 1. (x) è ammissibile
->
-> - rispetta i vincoli (Ax=b);
-> - è non negativo.
->
-> 2. (u) è ammissibile
->
-> - non viola i vincoli duali (u^\top A \le c^\top).
->
-> 3. Sono coerenti tra loro
->
-> - nessuna variabile positiva “spreca valore”
->   (condizione di **complementarità**).
->
-> 👉 **Servono tutte e tre insieme**, mai una sola.
+
 ---
+
 #### Una soluzione di base di un problema di PLC e' chiamata degenere quando: 
 
 1. ci sono piu' variabili rispetto ai vincoli;
@@ -188,40 +177,23 @@ $$
 8. vi sono variabili nulle nella soluzione;
 
 > Risposte:
-> ### Definizione corretta di degenerazione (BFS,Basic Feasible Solution)
 >
-> In un problema di **Programmazione Lineare** (LP/PLC), una **soluzione di base** è **degenere** quando **almeno una variabile di base vale 0**
-> (equivalentemente: il numero di variabili di base **strettamente positive** è **< m**, dove *m* è il numero di vincoli / righe della matrice dei vincoli).
+> Una delle var in base = 0
 >
-> Quindi: *“ci sono variabili nulle nella soluzione”* **non è sufficiente** in generale, perché in una BFS ci saranno sempre molte variabili **non di base** poste a 0. La degenerazione riguarda **le variabili di base**.
+> 1. ❌. Il numero di variabili è generalmente maggiore del numero di vincoli, ma ciò non definisce la degenerazione.
 >
-> Esempio di tableu degenere:
+> 2. ❌. In una soluzione di base degenere, il numero di variabili di base che sono zero è superiore al numero di vincoli.
 >
-> $\begin{array}{|c|ccccc|}
-> \hline
-> x_1 & x_2 & x_3 & x_4 & x_5 \\
-> \hline
-> 0 & 0 & 0 & 5 & 3 & -3 \\
-> 1 & 0 & 2 & 0 & 6 & 2 \\
-> 0 & 1 & 4 & 1 & -2 & 0 \\
-> \hline
-> \end{array}$
+> 3. ✅
 >
-> Quindi la soluzione fattibile di base(BFS)  associata è $x^*=(2,0,0,0,0)$ con $x_3=x_4=x_5=0$ non basiche.
+> 4. ❌
 >
-> La soluzione è **degenere** perché **una variabile di base è nulla**: $x_2$ è in base e vale (0). Valutazione delle risposte:
+> 5. ❌. La degenerazione implica che il numero di variabili di base a zero sia superiore al numero di vincoli, ma non è definita così.
 >
-> ✅ Corrette:
-> - **8.** “vi sono variabili nulle nella soluzione” → corretta **solo se intesa come: variabili di base nulle** Attenti, da chiedere al prof.
-> - **3.** "n variabili di base ≠0 < n vincoli” → è proprio l’equivalente della degenerazione.
-> - **6.** è la stessa idea della 3, solo riscritta.
+> 6. ✅
 >
-> ❌ Errate / non definitorie:
-> - **1.** irrilevante per degenerazione.
-> - **2.** troppo forte: “n basiche a zero = n vincoli” significherebbe tutte le basiche zero (caso particolare, non definizione).
-> - **4.** descrive il caso **non degenere** (basiche non nulle = m).
-> - **5.** non è collegata alla definizione (mix n−m).
-> - **7.** una base deve essere invertibile per definizione di base (non caratterizza degenerazione).
+> 7. ❌. Una matrice di base deve essere quadrata e invertibile.
+
 ---
 
 #### Dato un problema di Programmazione Lineare Intera (PLI), in minimizzazione, sia ( $z^*$ ) il valore ottimale del rilassamento continuo (LP-relax).
